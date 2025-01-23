@@ -2,21 +2,23 @@ package arrayList;
 
 import java.util.Arrays;
 
-public class MyArrayListV3 {
+public class MyArrayListV4<E> {
     private static final int DEFAULT_CAPACITY = 5;
+
     private Object[] elementData;
     private int size = 0;
-    public MyArrayListV3() {
+
+    public MyArrayListV4() {
         elementData = new Object[DEFAULT_CAPACITY];
     }
-    public MyArrayListV3(int initialCapacity) {
+    public MyArrayListV4(int initialCapacity) {
         elementData = new Object[initialCapacity];
     }
     public int size() {
         return size;
     }
 
-    public void add(Object e) {
+    public void add(E e) {
         if(size == elementData.length) {
             grow();
         }
@@ -24,7 +26,7 @@ public class MyArrayListV3 {
     }
 
     //원하는 위치에 추가
-    public void add(int index, Object e) {
+    public void add(int index, E e) {
         if(size==elementData.length) {
             grow();
         }
@@ -52,17 +54,17 @@ public class MyArrayListV3 {
         return removed;
     }
 
-    public Object get(int index) {
-        return elementData[index];
+    public E get(int index) {
+        return (E) elementData[index];
     }
 
-    public Object set(int index, Object element) {
-        Object oldValue = get(index);
+    public E set(int index, E element) {
+        E oldValue = get(index);
         elementData[index] = element;
         return oldValue;
     }
 
-    public int indexOf(Object o) {
+    public int indexOf(E o) {
         for (int i = 0; i < size; i++) {
             if (o.equals(elementData[i])) {
                 return i;
