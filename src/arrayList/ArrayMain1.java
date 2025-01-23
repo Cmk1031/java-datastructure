@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class ArrayMain1 {
     public static void main(String[] args) {
+        System.out.println("push check");
         int[] arr = new int[5];
         System.out.println("index 입력: O(1)");
         arr[0] = 1;
