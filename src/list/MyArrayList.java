@@ -1,0 +1,81 @@
+package list;
+
+import java.util.Arrays;
+
+public class MyArrayList<E> implements MyList<E>{
+    private static final int DEFAULT_CAPACITY = 5;
+
+    private Object[] elementData;
+    private int size = 0;
+
+    public MyArrayList() {
+        elementData = new Object[DEFAULT_CAPACITY];
+    }
+    public MyArrayList(int initialCapacity) {
+        elementData = new Object[initialCapacity];
+    }
+    public int size() {
+        return size;
+    }
+
+    public void add(E e) {
+        if(size == elementData.length) {
+            grow();
+        }
+        elementData[size++] = e;
+    }
+
+    //원하는 위치에 추가
+    public void add(int index, E e) {
+        if(size==elementData.length) {
+            grow();
+        }
+        shiftRightFrom(index);
+        elementData[index] = e;
+        size++;
+    }
+
+    private void shiftRightFrom(int index) {
+        for(int i=size; i>index; i--) {
+            elementData[i] = elementData[i-1];
+        }
+    }
+
+    private void grow() {
+        int oldCapacity = elementData.length;
+        int newCapacity = oldCapacity*2;
+        elementData = Arrays.copyOf(elementData, newCapacity);
+    }
+
+    public E remove(int index) {
+        E removed = get(index);
+
+
+        return removed;
+    }
+
+    public E get(int index) {
+        return (E) elementData[index];
+    }
+
+    public E set(int index, E element) {
+        E oldValue = get(index);
+        elementData[index] = element;
+        return oldValue;
+    }
+
+    public int indexOf(E o) {
+        for (int i = 0; i < size; i++) {
+            if (o.equals(elementData[i])) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(Arrays.copyOf(elementData, size)) + " size=" +
+                size + ", capacity=" + elementData.length;
+    }
+}

@@ -1,6 +1,6 @@
-package linkedList;
+package list;
 
-public class MyLinkedListV3<E> {
+public class MyLinkedList<E> {
     private Node<E> first;
     private int size = 0;
 
