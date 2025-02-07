@@ -1,4 +1,4 @@
-package set;
+package set.myHash;
 
 public class MyHashSetV0Main {
     public static void main(String[] args) {

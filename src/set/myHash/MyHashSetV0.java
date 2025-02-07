@@ -1,4 +1,4 @@
-package set;
+package set.myHash;
 
 import java.util.Arrays;
 
