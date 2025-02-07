@@ -30,4 +30,4 @@ collection(interface) -> set(interface) -> HashSet -> Linked HashSet
 시간 복잡도: 주요 연산들은 O(log n), HashSet보다는 느리다.
 
 실무에서는 set이 필요한 경우 HashSet을 가장 많이 사용한다.
-입력 순서 유지, 값 정렬의 필요에 따라서 LinkedHashSet, TreeSet을 선택하면 된다. 
+입력 순서 유지, 값 정렬의 필요에 따라서 LinkedHashSet, TreeSet을 선택하면 된다.
